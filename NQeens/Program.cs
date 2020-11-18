@@ -1,15 +1,14 @@
 ﻿using System;
-using NQueens.Helpers;
-using static NQueens.NQueensLogicLayer;
 using static NQueens.Helpers.OptionHelpers;
+using static NQueens.NQueensLogicLayer;
 
 namespace NQueens
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var userInput =  Some(UserInput());
+            var userInput = Some(UserInput());
             Console.WriteLine(userInput.Value);
         }
     }
