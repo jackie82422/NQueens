@@ -8,6 +8,8 @@ namespace NQueensTests
     [TestClass]
     public class NQueensLogicLayerTests
     {
+        #region UserInput
+
         [DataTestMethod]
         [DataRow(2, 2)]
         public void ValidInputByAp_UserInputTest_ReturnInputNum(int inputNum, int exceptedNum)
@@ -28,11 +30,13 @@ namespace NQueensTests
 
         [TestMethod]
         [ExpectedException(typeof(InvalidCastException))]
-        public void InValidInputByConsole_UserInputTest_ReturnException()
+        public void InvalidInputByConsole_UserInputTest_ReturnException()
         {
             var inputParam = new StringReader("NaN");
             Console.SetIn(inputParam);
             var actualNum = UserInput();
         }
+
+        #endregion UserInput
     }
 }

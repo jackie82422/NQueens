@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 
 namespace NQueens.Helpers
@@ -7,6 +9,8 @@ namespace NQueens.Helpers
     public static class OptionHelpers
     {
         public static Option<T> Some<T>(T value) => new Option<T>(value);
+
+        public static Option<IEnumerable<T>> Some<T>(IEnumerable<T> value) => new Option<IEnumerable<T>>(value);
     }
 
     public enum OptionStatus
@@ -77,5 +81,11 @@ namespace NQueens.Helpers
 
         public static Option<R> Map<T, R>(this Option<T> source, Func<T, R> map) =>
             (source.HasValue && !source.HasError) ? OptionHelpers.Some(map(source.Value)) : new Option<R>();
+
+        public static Option<IEnumerable<R>> Map<T,R>(this Option<IEnumerable<T>> source,Func<IEnumerable<T>, IEnumerable<R>> map)=>
+            (source.HasValue && !source.HasError) ? OptionHelpers.Some(map(source.Value)) : new Option<IEnumerable<R>>();
+
+        public static void Do<T>(this Option<T> source, Action<T> func) =>
+            func(source);
     }
 }
