@@ -1,7 +1,8 @@
 ﻿using System;
 using NQueens.Helpers;
 using static NQueens.Helpers.OptionHelpers;
-using static NQueens.NQueensLogicLayer;
+using static NQueens.NQueensHelper;
+
 
 namespace NQueens
 {
@@ -13,7 +14,6 @@ namespace NQueens
             {
                 Some(UserInput(8))
                     .CheckInputValid()
-                    .SetBoardMatrix()
                     .Map(NQueenCalculate)
                     .Do(PrintNQueenResult);
             }

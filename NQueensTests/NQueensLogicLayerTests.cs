@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using static NQueens.NQueensLogicLayer;
+using static NQueens.NQueensHelper;
 
 namespace NQueensTests
 {
